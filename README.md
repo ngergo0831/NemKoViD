@@ -13,7 +13,7 @@ A fegyelmi vétség legsúlyosabb következménye a hallgató elbocsátása az e
   
 Minimálisan teljesítendő (6 pont)  
   
-[ ] Listaoldal: megjelenik (0 pont)  
+[x] Listaoldal: megjelenik (0 pont)  
 [ ] Listaoldal: statikus szöveg és tájékoztató (0 pont)  
 [ ] Listaoldal: összes időpont listázása (1 pont)  
 [ ] Admin: új időpont felvétele, hibakezelés (bejelentkezés és admin funkciók nélkül) (2 pont)  
