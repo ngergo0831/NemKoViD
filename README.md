@@ -11,16 +11,16 @@ amíg egy hallgató egy másik hallgató munkáját - vagy legalábbis annak jel
 saját munkájaként mutatja be, az fegyelmi vétségnek számít.  
 A fegyelmi vétség legsúlyosabb következménye a hallgató elbocsátása az egyetemről.  
   
-Minimálisan teljesítendő (6 pont)
-
-[ ] Listaoldal: megjelenik (0 pont)
-[ ] Listaoldal: statikus szöveg és tájékoztató (0 pont)
-[ ] Listaoldal: összes időpont listázása (1 pont)
-[ ] Admin: új időpont felvétele, hibakezelés (bejelentkezés és admin funkciók nélkül) (2 pont)
-[ ] Admin: új időpont felvétele, sikeres mentés (bejelentkezés és admin funkciók nélkül) (2 pont)
-
-Az alap feladatok (14 pont)
-
+Minimálisan teljesítendő (6 pont)  
+  
+[ ] Listaoldal: megjelenik (0 pont)  
+[ ] Listaoldal: statikus szöveg és tájékoztató (0 pont)  
+[ ] Listaoldal: összes időpont listázása (1 pont)  
+[ ] Admin: új időpont felvétele, hibakezelés (bejelentkezés és admin funkciók nélkül) (2 pont)  
+[ ] Admin: új időpont felvétele, sikeres mentés (bejelentkezés és admin funkciók nélkül) (2 pont)  
+  
+Az alap feladatok (14 pont)  
+  
 [ ] Listaoldal: Adott hónapba eső időpontok listázása (0,5 pont)
 [ ] Listaoldal: Előző és következő hónap listázása (1 pont)
 [ ] Listaoldal: Szabad időpont zöld, a betelt piros (0,5 pont)
