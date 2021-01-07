@@ -1,0 +1,2 @@
+# NemKoViD
+Webprogramozás PHP beadandó
