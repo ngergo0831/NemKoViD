@@ -77,6 +77,7 @@ Az űrlapok `<form>` eleminek attribútumai közé vegyük fel a `novalidate`
 
 A feladatban kétféle adat van: időpontok és felhasználók. Ez a kétféle adat hivatkozik egymásra, hiszen egy időpontnál tárolni kell, hogy kik jelentkeztek már rá, és egy felhasználónál (opcionálisan, mert máshogy is megoldható) tárolni lehet, hogy melyik időpontot választotta. Amikor kétféle adat egymásra hivatkozik, akkor ezt az információt el kell tárolni az adatai között. Pl. az időpontoknál a jelentkezett felhasználók egy tömbben lesznek, a tömb egyes elemeiként eltárolhatnánk a felhasználónevet, email címet, stb, de ezek helyett érdemes a felhasználó azonosítóját eltárolni, hiszen az biztosan egyedi a felhasználóra nézve. Az azonosító alapján pedig gyorsan kikereshető a felhasználók közül az adata. Pl.
 
+```javascript
 $users = [
   'userid1' => [
     'id'        => 'userid1',
@@ -98,6 +99,7 @@ $appointments = [
 ],
 ]
 ];
+```
 
 ## A fejlesztés lépésekre bontása
 
