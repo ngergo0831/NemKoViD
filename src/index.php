@@ -40,6 +40,13 @@
           központi épületében különböző időpontokban oltásokat szervez.
         </p>
         <p>Az oldalon a koronavírus elleni oltásra lehet időpontot foglalni.</p>
+        <h5 style="margin-top:50px;">Időpontok</h5>
+        <?php
+          require_once(dirname(__DIR__).'/data/appointments.php');
+          foreach ($appointments as $appoints) {
+            echo '<p>'.$appoints["time"].' '.$appoints["capacity"].'/'.$appoints["capacity"]-count($appoints["users"]).' szabad hely</p>';
+          }
+        ?>
       </div>
     </div>
 
