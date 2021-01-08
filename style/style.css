@@ -1,0 +1,7 @@
+.available {
+  color: rgb(0, 201, 0);
+}
+
+.unavailable {
+  color: red;
+}

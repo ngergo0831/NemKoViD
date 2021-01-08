@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+d<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,6 +10,7 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="../style/style.css">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
@@ -44,7 +45,17 @@
         <?php
           require_once(dirname(__DIR__).'/data/appointments.php');
           foreach ($appointments as $appoints) {
-            echo '<p>'.$appoints["time"].' '.$appoints["capacity"].'/'.$appoints["capacity"]-count($appoints["users"]).' szabad hely</p>';
+            echo '<div style="margin-top:20px;" class="';
+            if($appoints["capacity"]-count($appoints["users"]) > 0){
+              echo 'available">';
+            }else{
+              echo 'unavailable">';
+            }
+            echo $appoints["time"].' '.$appoints["capacity"]-count($appoints["users"]).'/'.$appoints["capacity"].' szabad hely</div>';
+            if($appoints["capacity"]-count($appoints["users"]) > 0){
+              #ha nem vagyunk bejelentkezve, akkor a loginra dob
+              echo '<a href="./reservation.php">Jelentkezés</a>';
+            }
           }
         ?>
       </div>
