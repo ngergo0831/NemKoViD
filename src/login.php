@@ -1,3 +1,11 @@
+<!-- 
+
+Állapottartás!!
+
+-->
+
+
+
 <?php
     session_start();
     echo isset($_SESSION['login']);
@@ -10,7 +18,7 @@
 <html lang="hu">
    <head>
      <meta http-equiv='content-type' content='text/html;charset=utf-8' />
-     <title>Login</title>
+     <title>NemKoViD - Bejelentkezés</title>
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -27,7 +35,7 @@
           header('LOCATION:login.php'); 
           die();
         } {
-          echo "<div class='alert alert-danger'>Email cím vagy jelszó hibás!</div>";
+          echo "<div class='alert alert-danger'>Hibás email cím vagy jelszó</div>";
         }
       }
 
@@ -44,7 +52,7 @@
     ?>
     <form action="" method="post" novalidate>
       <div class="form-group">
-        <label for="username">Email cím</label>
+        <label for="email">Email cím</label>
         <input type="text" class="form-control" id="email" name="email" placeholder="Email cím" required autofocus>
       </div>
       <div class="form-group">
@@ -55,7 +63,7 @@
     </form>
     <div class="containter" style="margin-top: 20px;">
         Még nincs fiókja?
-        <a href="src/register.php">Regisztráció</a>
+        <a href="register.php">Regisztráció</a>
     </div>
   </div>
 </body>
