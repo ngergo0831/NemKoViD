@@ -21,9 +21,8 @@ d<!DOCTYPE html>
         <div style="color: white">
         <?php
           session_start();
-          if(isset($_SESSION['login'])) {
-            $username = $_SESSION['username']; 
-            echo $username;
+          if(isset($_SESSION['login']) && isset($_SESSION['username'])) {
+            echo $_SESSION['username'];
             echo '<a href="/src/logout.php">Kijelentkezés</a>';
           }else{
             echo '<a href="/src/login.php">Bejelentkezés</a>';
@@ -43,7 +42,10 @@ d<!DOCTYPE html>
         <p>Az oldalon a koronavírus elleni oltásra lehet időpontot foglalni.</p>
         <h5 style="margin-top:50px;">Időpontok</h5>
         <?php
-          require_once(dirname(__DIR__).'/data/appointments.php');
+          require_once('../data/appointments.php');
+          if(!isset($_SESSION['month'])){
+            $_SESSION['month'] = JAN;
+          }
           foreach ($appointments as $appoints) {
             echo '<div style="margin-top:20px;" class="';
             if($appoints["capacity"]-count($appoints["users"]) > 0){
@@ -53,8 +55,13 @@ d<!DOCTYPE html>
             }
             echo $appoints["time"].' '.$appoints["capacity"]-count($appoints["users"]).'/'.$appoints["capacity"].' szabad hely</div>';
             if($appoints["capacity"]-count($appoints["users"]) > 0){
-              #ha nem vagyunk bejelentkezve, akkor a loginra dob
-              echo '<a href="./reservation.php">Jelentkezés</a>';
+              if(isset($_SESSION['login']) && $_SESSION['login']){
+                if(!haveAppointment($_SESSION['username'])){
+                  echo '<a href="/src/reservation.php">Jelentkezés</a>';
+                }
+              }else{
+                  echo '<a href="/src/login.php">Jelentkezés</a>';  
+              }
             }
           }
         ?>
