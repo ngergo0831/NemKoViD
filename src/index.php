@@ -40,7 +40,8 @@ d<!DOCTYPE html>
           központi épületében különböző időpontokban oltásokat szervez.
         </p>
         <p>Az oldalon a koronavírus elleni oltásra lehet időpontot foglalni.</p>
-        <h5 style="margin-top:50px;">Időpontok</h5>
+        <h4 style="margin-top:50px;">Időpontok</h4>
+        <h5><?= $_SESSION['month']?></h5>
         <div class="d-flex">
           <a href="/src/prevmonth.php "<?php if(isset($_SESSION['month']) && $_SESSION['month'] == 'Január'){echo 'class="no-more-month"';} ?> style="margin-right:35px;">Előző hónap</a>
           <a href="/src/nextmonth.php "<?php if(isset($_SESSION['month']) && $_SESSION['month'] == 'Május'){echo 'class="no-more-month"';} ?> >Következő hónap</a>
