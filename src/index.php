@@ -41,12 +41,17 @@ d<!DOCTYPE html>
         </p>
         <p>Az oldalon a koronavírus elleni oltásra lehet időpontot foglalni.</p>
         <h5 style="margin-top:50px;">Időpontok</h5>
+        <div class="d-flex">
+          <a href="/src/prevmonth.php "<?php if(isset($_SESSION['month']) && $_SESSION['month'] == 'Január'){echo 'class="no-more-month"';} ?> style="margin-right:35px;">Előző hónap</a>
+          <a href="/src/nextmonth.php "<?php if(isset($_SESSION['month']) && $_SESSION['month'] == 'Május'){echo 'class="no-more-month"';} ?> >Következő hónap</a>
+        </div>
         <?php
           require_once('../data/appointments.php');
           if(!isset($_SESSION['month'])){
             $_SESSION['month'] = JAN;
           }
           foreach ($appointments as $appoints) {
+            if($appoints['month'] == $_SESSION['month']){
             echo '<div style="margin-top:20px;" class="';
             if($appoints["capacity"]-count($appoints["users"]) > 0){
               echo 'available">';
@@ -64,6 +69,7 @@ d<!DOCTYPE html>
               }
             }
           }
+        }
         ?>
       </div>
     </div>

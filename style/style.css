@@ -5,3 +5,8 @@
 .unavailable {
   color: red;
 }
+
+.no-more-month {
+  color: grey;
+  pointer-events: none;
+}
