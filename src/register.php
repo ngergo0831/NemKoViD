@@ -1,4 +1,5 @@
 <?php
+    require_once('../data/users.php');
     session_start();
     if(isset($_SESSION['login'])) {
       header('LOCATION:index.php');
@@ -10,23 +11,44 @@
     $errors = [];
     if(isset($_POST['register'])){
         if(isset($_POST['name'])){
-            $name = $_POST['name']; 
+            $name = $_POST['name'];
+            if (!preg_match ("/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöőõøùúûüűųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖŐÕØÙÚÛÜŰŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u", $name) ) {  
+                array_push($errors,"Helytelen név formátum. A név csak betűket tartalmazhat.");  
+            }
         }
+        #A megadott TAJ szám már szerepel a rendszerben.
         if(isset($_POST['taj'])){
             $taj = $_POST['taj'];
+            if (!preg_match ("/(^\d{3}-\d{3}-\d{3})|(\d{9})/", $taj) ) {  
+                array_push($errors,"Hibás TAJ szám formátum. Az elfogadott formátumok:123-456-789 vagy 123456789.");  
+            }
         }
         if(isset($_POST['address'])){
             $address = $_POST['address'];
         }
+        #A megadott email címmel már regisztráltak.
         if(isset($_POST['regemail'])){
             $regemail = $_POST['regemail'];
+            if (!preg_match ("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^", $regemail) ){  
+                array_push($errors,"Az email cím formátuma nem megfelelő.");  
+            }
         }
         if(isset($_POST['regpassw'])){
             $regpassw = $_POST['regpassw'];
+            if(strlen($regpassw) < 5){
+                array_push($errors,"A jelszónak minimum 5 karakter hosszúnak kell lennie.");  
+            }
         }
-        if(isset($_POST['regpassw2'])){
+        if(isset($_POST['regpassw']) && isset($_POST['regpassw2'])){
             $regpassw2 = $_POST['regpassw2'];
+            if($regpassw != $regpassw2){
+                array_push($errors,"A beírt jelszavak nem egyeznek");  
+            }
         }
+        /*if(count($errors) == 0){
+            header('LOCATION:index.php');
+            die();
+        }*/
     }
     $_POST = array();
 ?>

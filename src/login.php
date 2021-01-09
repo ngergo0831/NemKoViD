@@ -41,9 +41,9 @@
 
       function isUserValid($email,$passw){
         require_once(dirname(__DIR__).'/data/users.php');
-          foreach ($users as $username => $userdata) {
+          foreach ($users as $userdata) {
               if($userdata['email'] === $email && $userdata['password'] === $passw) {
-                  $_SESSION['username'] = $username;
+                  $_SESSION['username'] = $userdata['name'];
                   return true;
               }
           }
