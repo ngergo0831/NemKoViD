@@ -27,6 +27,9 @@
   <div class="container">
     <h3 class="text-center">Login</h3>
     <?php
+      if(isset($_SESSION['regsuccess'])){
+        echo $_SESSION['regsuccess'];
+      }
       if(isset($_POST['submit'])){
         $email = $_POST['email']; 
         $password = $_POST['password'];
@@ -40,10 +43,11 @@
       }
 
       function isUserValid($email,$passw){
-        require_once(dirname(__DIR__).'/data/users.php');
-          foreach ($users as $userdata) {
-              if($userdata['email'] === $email && $userdata['password'] === $passw) {
+        require_once('../data/users.php');
+          foreach ($users as $user => $userdata) {
+              if($user === $email && $userdata['password'] === $passw) {
                   $_SESSION['username'] = $userdata['name'];
+                  $_SESSION['logedemail'] = $user;
                   return true;
               }
           }

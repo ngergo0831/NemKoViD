@@ -64,7 +64,7 @@ d<!DOCTYPE html>
             echo $appoints["time"].' '.$appoints["capacity"]-count($appoints["users"]).'/'.$appoints["capacity"].' szabad hely</div>';
             if($appoints["capacity"]-count($appoints["users"]) > 0){
               if(isset($_SESSION['login']) && $_SESSION['login']){
-                if(!haveAppointment($_SESSION['username'])){
+                if(!haveAppointment($_SESSION['logedemail'])){
                   echo '<a href="/src/reservation.php">Jelentkezés</a>';
                 }
               }else{

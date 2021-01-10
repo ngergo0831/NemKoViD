@@ -1,23 +1,38 @@
 {
-  "admin": {
-    "email": "admin@nemkovid.hu",
-    "password": "admin",
-    "name": "Admin Admin",
-    "taj": "123-456-789",
-    "address": "1021 Budapest Almafa utca 9"
-  },
-  "user1": {
-    "email": "user1@example.com",
-    "password": "user1",
-    "name": "Minta János",
-    "taj": "154-324-332",
-    "address": "1123 Budapest Kossuth tér 11"
-  },
-  "user2": {
-    "email": "user2@example.com",
-    "password": "user2",
-    "name": "Kovács Elemér",
-    "taj": "321-221-487",
-    "address": "6000 Kecskemét Fő utca 1"
-  }
+    "admin@nemkovid.hu": {
+        "password": "admin",
+        "name": "Admin Admin",
+        "taj": "123-456-789",
+        "address": "1021 Budapest Almafa utca 9"
+    },
+    "user1@example.com": {
+        "password": "user1",
+        "name": "Minta J\u00e1nos",
+        "taj": "154-324-332",
+        "address": "1123 Budapest Kossuth t\u00e9r 11"
+    },
+    "user2@example.com": {
+        "password": "user2",
+        "name": "Kov\u00e1cs Elem\u00e9r",
+        "taj": "321-221-487",
+        "address": "6000 Kecskem\u00e9t F\u0151 utca 1"
+    },
+    "ngergo0831@gmail.com": {
+        "password": "12345",
+        "name": "Nagy Gerg\u0151",
+        "taj": "117-123-412",
+        "address": "6000 Kecskem\u00e9t asd tcsd"
+    },
+    "testelek@gmail.com": {
+        "password": "12345",
+        "name": "Nagy Gerg\u0151",
+        "taj": "117-193-412",
+        "address": "Zsigmond Ferenc utca 33"
+    },
+    "asdfffds@gmail.com": {
+        "password": "12345",
+        "name": "Gerg\u0151 Nagy",
+        "taj": "101-211-101",
+        "address": "Zsigmond Ferenc"
+    }
 }

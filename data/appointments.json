@@ -3,13 +3,13 @@
     "time": "2021-01-04 15:00",
     "month": "Január",
     "capacity": "2",
-    "users": ["user1", "user2"]
+    "users": ["user1@user.com", "user2@user.com"]
   },
   "appid2": {
     "time": "2021-01-05 16:00",
     "month": "Január",
     "capacity": "5",
-    "users": ["user3", "admin"]
+    "users": ["user3@user.com", "admin@nemkovid.hu"]
   },
   "appid3": {
     "time": "2021-01-05 20:00",
@@ -21,19 +21,19 @@
     "time": "2021-01-20 15:00",
     "month": "Január",
     "capacity": "2",
-    "users": ["test4", "test3"]
+    "users": ["test4@user.com", "test3@user.com"]
   },
   "appid5": {
     "time": "2021-02-10 12:00",
     "month": "Február",
     "capacity": "3",
-    "users": ["test5", "test6", "test7"]
+    "users": ["test5@user.com", "test6@user.com", "test7@user.com"]
   },
   "appid6": {
     "time": "2021-02-18 10:00",
     "month": "Február",
     "capacity": "1",
-    "users": ["test8"]
+    "users": ["test8@user.com"]
   },
   "appid7": {
     "time": "2021-03-04 08:00",
@@ -45,48 +45,48 @@
     "time": "2021-03-11 11:00",
     "month": "Március",
     "capacity": "2",
-    "users": ["test9"]
+    "users": ["test9@user.com"]
   },
   "appid9": {
     "time": "2021-03-18 15:00",
     "month": "Március",
     "capacity": "7",
-    "users": ["test10"]
+    "users": ["test10@user.com"]
   },
   "appid10": {
     "time": "2021-04-01 23:00",
     "month": "Április",
     "capacity": "2",
-    "users": ["test11"]
+    "users": ["test11@user.com"]
   },
   "appid11": {
     "time": "2021-04-20 04:20",
     "month": "Április",
     "capacity": "20",
     "users": [
-      "a",
-      "b",
-      "c",
-      "d",
-      "e",
-      "f",
-      "g",
-      "h",
-      "i",
-      "j",
-      "k",
-      "l",
-      "m",
-      "n",
-      "o",
-      "p"
+      "a@user.com",
+      "b@user.com",
+      "c@user.com",
+      "d@user.com",
+      "e@user.com",
+      "f@user.com",
+      "g@user.com",
+      "h@user.com",
+      "i@user.com",
+      "j@user.com",
+      "k@user.com",
+      "l@user.com",
+      "m@user.com",
+      "n@user.com",
+      "o@user.com",
+      "p@user.com"
     ]
   },
   "appid12": {
     "time": "2021-04-20 12:00",
     "month": "Április",
     "capacity": "3",
-    "users": ["test12"]
+    "users": ["test12@user.com"]
   },
   "appid13": {
     "time": "2021-05-12 17:00",

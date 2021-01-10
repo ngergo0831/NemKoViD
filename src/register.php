@@ -19,17 +19,22 @@
         #A megadott TAJ szám már szerepel a rendszerben.
         if(isset($_POST['taj'])){
             $taj = $_POST['taj'];
-            if (!preg_match ("/(^\d{3}-\d{3}-\d{3})|(\d{9})/", $taj) ) {  
-                array_push($errors,"Hibás TAJ szám formátum. Az elfogadott formátumok:123-456-789 vagy 123456789.");  
+            if(!isTajNew($taj)){
+                array_push($errors,"A megadott TAJ számmal már regisztráltak.");
+            }
+            if (strlen($taj) != 11 || !preg_match ("/(^\d{3}-\d{3}-\d{3})/", $taj) ) {  
+                array_push($errors,"Hibás TAJ szám formátum. Az elfogadott formátum: 123-456-789.");  
             }
         }
         if(isset($_POST['address'])){
             $address = $_POST['address'];
         }
-        #A megadott email címmel már regisztráltak.
         if(isset($_POST['regemail'])){
             $regemail = $_POST['regemail'];
-            if (!preg_match ("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^", $regemail) ){  
+            if(!isEmailNew($regemail)){
+                array_push($errors,"A megadott email címmel már regisztráltak.");
+            }
+            else if (!preg_match ("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^", $regemail) ){  
                 array_push($errors,"Az email cím formátuma nem megfelelő.");  
             }
         }
@@ -45,10 +50,20 @@
                 array_push($errors,"A beírt jelszavak nem egyeznek");  
             }
         }
-        /*if(count($errors) == 0){
-            header('LOCATION:index.php');
+        if(count($errors) == 0){
+            $newUser = [
+                $regemail => [
+                    'password' => $regpassw,
+                    'name' => $name,
+                    'taj' => $taj,
+                    'address' => $address
+                ]
+            ];
+            addUser($newUser);
+            $_SESSION['regsuccess'] = '<h3>Sikeres regisztráció. Jelentkezzen be!</h3>';
+            header('LOCATION:login.php');
             die();
-        }*/
+        }
     }
     $_POST = array();
 ?>
