@@ -40,7 +40,7 @@ session_start();
                     if($appoints['time'] == $_GET['restime'] && count($appoints['users']) < $appoints['capacity'] && !haveAppointment($_SESSION['logedemail'])){
                         array_push($appointments[$key]['users'],$_SESSION['logedemail']);
                         modifyAppointment($appointments);
-                        header('LOCATION:index.php'); 
+                        header('LOCATION:ressuccessfull.php'); 
                         die();
                     }
                 }

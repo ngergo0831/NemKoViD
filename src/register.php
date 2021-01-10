@@ -93,7 +93,7 @@
             <div>
                 <?php
                     foreach ($errors as $error) {
-                        echo $error.'<br>';
+                        echo '<div style="color:red;">'.$error.'</div><br>';
                     }
                 ?>
             </div>
