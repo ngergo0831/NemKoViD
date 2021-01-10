@@ -25,7 +25,7 @@ d<!DOCTYPE html>
           define('ADMIN','admin@nemkovid.hu');
           if(isset($_SESSION['login']) && isset($_SESSION['username'])) {
             echo $_SESSION['username'];
-            echo '<a href="/src/logout.php">Kijelentkezés</a>';
+            echo '<a href="/src/logout.php" style="margin-left:20px">Kijelentkezés</a>';
           }else{
             echo '<a href="/src/login.php">Bejelentkezés</a>';
           }
