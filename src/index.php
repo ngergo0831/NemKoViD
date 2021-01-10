@@ -40,6 +40,7 @@ d<!DOCTYPE html>
           központi épületében különböző időpontokban oltásokat szervez.
         </p>
         <p>Az oldalon a koronavírus elleni oltásra lehet időpontot foglalni.</p>
+        <p><b>Fontos!</b> Az oltás önkéntes és ingyenes. Az oltás sorrendjét nem a jelentkezés időpontja, hanem a veszélyeztetettség mértéke határozza majd meg.</p>
         <h4 style="margin-top:50px;">Időpontok</h4>
         <h5><?php if(isset($_SESSION['month'])) {
           echo $_SESSION['month'];
