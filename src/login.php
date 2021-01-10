@@ -61,6 +61,8 @@
               if($user === $email && $userdata['password'] === $passw) {
                   $_SESSION['username'] = $userdata['name'];
                   $_SESSION['logedemail'] = $user;
+                  $_SESSION['address'] = $userdata['address'];
+                  $_SESSION['taj'] = $userdata['taj'];
                   return true;
               }
           }

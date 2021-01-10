@@ -42,8 +42,8 @@ Az alap feladatok (14 pont)
 - [x] Admin: be lehet jelentkezni admin felhasználó adataival (0,5 pont)
 - [ ] Admin: időpont részletei oldalon megjelennek az erre jelentkezett felhasználók adatai (0,5 pont)
 - [ ] Admin: új időpont meghirdetése csak admin felhasználóval érhető el (0,5 pont)
-- [ ] Nincs nagyobb programhiba, nem csalhatók elő furcsa jelenségek (0,5 pont)
-- [ ] Igényes kialakítás (1 pont)
+- [x] Nincs nagyobb programhiba, nem csalhatók elő furcsa jelenségek (0,5 pont)
+- [x] Igényes kialakítás (1 pont)
 
 Plusz feladatok (plusz 5 pont)
 
