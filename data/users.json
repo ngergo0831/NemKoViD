@@ -34,5 +34,11 @@
         "name": "Gerg\u0151 Nagy",
         "taj": "101-211-101",
         "address": "Zsigmond Ferenc"
+    },
+    "asdfasdf@gmail.com": {
+        "password": "12345",
+        "name": "Nagy Gerg\u0151",
+        "taj": "110-121-123",
+        "address": "Zsigmond Ferenc utca 33"
     }
 }

@@ -66,7 +66,7 @@ d<!DOCTYPE html>
             if($appoints["capacity"]-count($appoints["users"]) > 0){
               if(isset($_SESSION['login']) && $_SESSION['login']){
                 if(!haveAppointment($_SESSION['logedemail'])){
-                  echo '<a href="/src/reservation.php">Jelentkezés</a>';
+                  echo '<a href="/src/reservation.php?restime='.$appoints["time"].'">Jelentkezés</a>';
                 }
               }else{
                   echo '<a href="/src/login.php">Jelentkezés</a>';  
