@@ -1,5 +1,5 @@
 <?php
-$file = $string = file_get_contents("../data/users.json");
+$file = file_get_contents("../data/users.json");
 $users = json_decode($file, true);
 
 function addUser($user){
@@ -29,4 +29,17 @@ function isTajNew($taj){
     }
     return true;
 }
+
+function showDetails($email){
+    global $users;
+    foreach ($users as $user => $userdata) {
+        if($user == $email){
+            echo '<b>Név:</b> '.$userdata['name'].' ';
+            echo '<b>Lakcím:</b> '.$userdata['address'].' ';
+            echo '<b>TAJ szám:</b> '.$userdata['taj'].'<br>';
+            break;
+        }
+    }
+}
+
 ?>

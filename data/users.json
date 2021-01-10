@@ -40,5 +40,11 @@
         "name": "Nagy Gerg\u0151",
         "taj": "110-121-123",
         "address": "Zsigmond Ferenc utca 33"
+    },
+    "ngergo@asd.com": {
+        "password": "12345",
+        "name": "Teszt Elek",
+        "taj": "123-123-456",
+        "address": "Zsigmond Ferenc utca 33"
     }
 }

@@ -1,6 +1,8 @@
 <?php
 require_once('../data/appointments.php');
+require_once('../data/users.php');
 session_start();
+define('ADMIN','admin@nemkovid.hu')
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -34,7 +36,10 @@ session_start();
         <input type="checkbox" name="accept" id="accept">
         <label for="accept" id='label'>A jelentkezéssel elfogadja az <a href="https://vakcinainfo.gov.hu/adatkezelesi-tajekoztato" target="_blank">általános feltételeket</a>.</label><br>
         <?php
-        if(isset($_POST['accept']) && isset($_POST['acceptBtn'])){
+        if(isset($_SESSION['logedemail']) && $_SESSION['logedemail'] == ADMIN){
+          echo '<p style="font-size:1.3em;color: red;">Adminként az időpontfoglalás nem lehetséges!</p>';
+        }
+        else if(isset($_POST['accept']) && isset($_POST['acceptBtn'])){
             if(isset($_GET['restime']) && isset($_SESSION['login']) && $_SESSION['login'] && isset($_SESSION['logedemail'])){
                 foreach ($appointments as $key => $appoints) {
                     if($appoints['time'] == $_GET['restime'] && count($appoints['users']) < $appoints['capacity'] && !haveAppointment($_SESSION['logedemail'])){
@@ -53,8 +58,21 @@ session_start();
             }
         }
         ?>
-        <button type="submit" name="acceptBtn" class="btn btn-primary">Jelentkezés megerősítése</button>
-    </form>
+        <?php 
+        if(isset($_SESSION['logedemail']) && $_SESSION['logedemail'] == ADMIN){
+          echo '<a href="../src/index.php" class="btn btn-primary">Vissza a főoldalra</a>';
+        }else{
+          echo '<button type="submit" name="acceptBtn" class="btn btn-primary">Jelentkezés megerősítése</button>';
+        }
+        ?>
+      </form>
+
+    <?php
+      if(isset($_SESSION['login']) && isset($_SESSION['logedemail']) && $_SESSION['logedemail'] == "admin@nemkovid.hu"){
+        echo '<div>Az időpontra regisztráltak adatai:</div>';
+        showReservedUsers($_GET['restime']);
+      } 
+    ?>
 
     </div>
     <script>

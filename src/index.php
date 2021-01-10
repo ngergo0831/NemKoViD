@@ -22,6 +22,7 @@ d<!DOCTYPE html>
         <?php
           session_start();
           require_once('../data/appointments.php');
+          define('ADMIN','admin@nemkovid.hu');
           if(isset($_SESSION['login']) && isset($_SESSION['username'])) {
             echo $_SESSION['username'];
             echo '<a href="/src/logout.php">Kijelentkezés</a>';
@@ -43,7 +44,9 @@ d<!DOCTYPE html>
         <p>Az oldalon a koronavírus elleni oltásra lehet időpontot foglalni.</p>
         <p><b>Fontos!</b> Az oltás önkéntes és ingyenes. Az oltás sorrendjét nem a jelentkezés időpontja, hanem a veszélyeztetettség mértéke határozza majd meg.</p>
         <?php
-          if(isset($_SESSION['login']) && $_SESSION['login'] && isset($_SESSION['logedemail']) && haveAppointment($_SESSION['logedemail'])){
+          if(isset($_SESSION['login']) && $_SESSION['login'] && isset($_SESSION['logedemail']) && $_SESSION['logedemail'] == ADMIN){
+            echo '<a href="../src/newtime.php" class="btn btn-primary">Új időpont meghirdetése</a>';
+          }else if(isset($_SESSION['login']) && $_SESSION['login'] && isset($_SESSION['logedemail']) && haveAppointment($_SESSION['logedemail'])){
             if(isset($_SESSION['appointmenttime'])){
               echo '<h4>Önnek már van foglalása a következő adatokkal: </h4>';
               echo 'Időpont: '.$_SESSION['appointmenttime'].'<br>';
@@ -81,9 +84,9 @@ d<!DOCTYPE html>
               echo 'unavailable">';
             }
             echo $appoints["time"].' '.$appoints["capacity"]-count($appoints["users"]).'/'.$appoints["capacity"].' szabad hely</div>';
-            if($appoints["capacity"]-count($appoints["users"]) > 0){
+            if(isset($_SESSION['logedemail']) && $_SESSION['logedemail'] == ADMIN || $appoints["capacity"]-count($appoints["users"]) > 0){
               if(isset($_SESSION['login']) && $_SESSION['login']){
-                if(!haveAppointment($_SESSION['logedemail'])){
+                if($_SESSION['logedemail'] == ADMIN || !haveAppointment($_SESSION['logedemail'])){
                   echo '<a href="/src/reservation.php?restime='.$appoints["time"].'">Jelentkezés</a>';
                 }
               }else{
