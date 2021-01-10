@@ -15,6 +15,7 @@ function haveAppointment($username){
     foreach ($appointments as $appoints) {
         foreach ($appoints['users'] as $user) {
             if($user == $username){
+                $_SESSION['appointmenttime'] = $appoints['time'];
                 return true;
             }
         }
@@ -30,6 +31,20 @@ function modifyAppointment($appointments){
     $fp = fopen('../data/appointments.json', 'w');
     fwrite($fp, json_encode($appointments,JSON_PRETTY_PRINT));
     fclose($fp);
+}
+
+function disclaimReservation($username){
+    global $appointments;
+    foreach ($appointments as $key => $appoints) {
+        foreach ($appoints['users'] as $user) {
+            if($user == $username){
+                $arraydiff = array_diff($appoints['users'], [$username]);
+                $appointments[$key]['users'] = $arraydiff;
+                modifyAppointment($appointments);
+                break;
+            }
+        }
+    }
 }
 
 ?>

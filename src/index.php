@@ -21,6 +21,7 @@ d<!DOCTYPE html>
         <div style="color: white">
         <?php
           session_start();
+          require_once('../data/appointments.php');
           if(isset($_SESSION['login']) && isset($_SESSION['username'])) {
             echo $_SESSION['username'];
             echo '<a href="/src/logout.php">Kijelentkezés</a>';
@@ -41,6 +42,24 @@ d<!DOCTYPE html>
         </p>
         <p>Az oldalon a koronavírus elleni oltásra lehet időpontot foglalni.</p>
         <p><b>Fontos!</b> Az oltás önkéntes és ingyenes. Az oltás sorrendjét nem a jelentkezés időpontja, hanem a veszélyeztetettség mértéke határozza majd meg.</p>
+        <?php
+          if(isset($_SESSION['login']) && $_SESSION['login'] && isset($_SESSION['logedemail']) && haveAppointment($_SESSION['logedemail'])){
+            if(isset($_SESSION['appointmenttime'])){
+              echo '<h4>Önnek már van foglalása a következő adatokkal: </h4>';
+              echo 'Időpont: '.$_SESSION['appointmenttime'].'<br>';
+              echo 'Név: '.$_SESSION['username'].'<br>';
+              echo 'Lakcím: '.$_SESSION['address'].'<br>';
+              echo 'TAJ szám: '.$_SESSION['taj'].'<br>';
+              echo '<form action="" method="POST" novalidate><button type="submit" name="disclaim" class="btn btn-primary">Foglalás lemondása</button></form>';
+              if(isset($_POST['disclaim'])){
+                disclaimReservation($_SESSION['logedemail']);
+                header('LOCATION:login.php'); 
+              }
+            }else{
+              echo 'Appointmenttime is not set';
+            }
+          }
+        ?>
         <h4 style="margin-top:50px;">Időpontok</h4>
         <h5><?php if(isset($_SESSION['month'])) {
           echo $_SESSION['month'];
@@ -50,7 +69,6 @@ d<!DOCTYPE html>
           <a href="/src/nextmonth.php "<?php if(isset($_SESSION['month']) && $_SESSION['month'] == 'Május'){echo 'class="no-more-month"';} ?> >Következő hónap</a>
         </div>
         <?php
-          require_once('../data/appointments.php');
           if(!isset($_SESSION['month'])){
             $_SESSION['month'] = JAN;
           }
